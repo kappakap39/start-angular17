@@ -1,0 +1,62 @@
+<div class="backgroudbody">
+  <div class="login-container">
+    <form (ngSubmit)="login()">
+      <h2 class="login-title">Welcome To CCET</h2>
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            class="form-control"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="togglePassword()"
+            >
+              <i
+                class="bi"
+                [ngClass]="showPassword ? 'bi-eye-slash-fill' : 'bi-eye-fill'"
+              ></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary btn-block"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+        Login
+      </button>
+    </form>
+  </div>
+</div>

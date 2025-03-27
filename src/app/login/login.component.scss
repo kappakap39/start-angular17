@@ -1,0 +1,143 @@
+.backgroudbody {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #59e4a8, #89c9ad, #44c38c, #2b9768, #115c3b);
+  background-size: 300% 300%;
+  animation: backgroundMove 6s infinite linear;
+  position: relative;
+  overflow: hidden;
+}
+
+/* เอฟเฟกต์พื้นหลังเคลื่อนที่ */
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* เพิ่มอนุภาคลอยเบาๆ */
+.backgroudbody::before,
+.backgroudbody::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(100px);
+  animation: floatingEffect 10s infinite alternate ease-in-out;
+}
+
+.backgroudbody::before {
+  top: 10%;
+  left: 15%;
+  animation-duration: 8s;
+}
+
+.backgroudbody::after {
+  bottom: 10%;
+  right: 15%;
+  animation-duration: 12s;
+}
+
+/* เอฟเฟกต์อนุภาคลอย */
+@keyframes floatingEffect {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+
+.login-container {
+  width: 350px;
+  // margin: 50px auto;
+  padding: 30px;
+  // background: rgba(89, 228, 168, 0.4);
+  background: #1b795d;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  .login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #d2fff4;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+
+    label {
+      font-weight: bold;
+      color: #d2fff4;
+    }
+
+    .input-group {
+      .form-control {
+        border: 2px solid #89c9ad;
+        border-radius: 5px;
+        transition: 0.3s;
+
+        &:focus {
+          outline: none;
+          border-color: #89e0ba;
+          box-shadow: 0 0 5px rgba(67, 219, 153, 0.8);
+        }
+      }
+
+      .input-group-append .btn {
+        border: none;
+        background: none;
+        color: #44c38c;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          color: #59e4a8;
+        }
+      }
+    }
+  }
+
+  .alert-danger {
+    color: white;
+    background: #e74c3c;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background: #44c38c;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: #59e4a8;
+    }
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
