@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have the 'angular17-ccet' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular17-ccet');
+    expect(app.title).toEqual('angular17');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular17-ccet');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular17');
   });
 });
